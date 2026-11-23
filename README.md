@@ -12,6 +12,26 @@ failure-handling section that answers "what happens when it breaks?".
 
 ## Products
 
+### Full catalog — 28 products, $9–$24
+
+The machine-readable catalog is committed in this repo:
+
+- `shop/.well-known/shop.json` — every product: id, title, price, category, status, delivery formats, licence
+- `shop/` — storefront rendering the same catalog
+
+Only paid, gateway-issued download URLs appear in the catalog; no product file
+(PDF, ZIP, Markdown) is stored in this repository.
+
+```bash
+curl -s https://reggiebro.github.io/workflowalpha_digitalproducts/shop/.well-known/shop.json | jq '.product_count'
+# 28
+```
+
+Product families: prompt packs, automation SOPs, agency proposal kits, onboarding
+systems, support playbooks, content-repurposing engines, data-cleanup kits,
+bootcamps and workflow packs. Live purchases run through the marketplace listing;
+catalog-ready items carry a price but no checkout link until published.
+
 ### The 47 Business Prompts — $9
 
 47 complete, copy-paste prompts across five business domains. Every prompt uses

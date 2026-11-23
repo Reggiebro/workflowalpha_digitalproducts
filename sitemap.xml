@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/landing/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/shop/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/shop/.well-known/shop.json</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/landing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/veloce-engine/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/veloce-engine/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/mentary-ai/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/mentary-ai/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/usb-coding-expert/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/usb-coding-expert/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/faceless-video/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/faceless-video/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/api/</loc>
+    <loc>https://reggiebro.github.io/workflowalpha_digitalproducts/api/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://reggiebro.github.io/WorkflowAlpha.ai/bug-bounty/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>
