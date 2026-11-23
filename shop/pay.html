@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Workflow Alpha</title>
+<style>
+:root{--ink:#0b1220;--muted:#5b6472;--line:#e3e7ee;--bg:#f7f8fa;--card:#fff;--acc:#0b6bcb;--buy:#34d399}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px}
+h1{margin:0 0 8px;font-size:40px;letter-spacing:-.03em}
+p.lead{color:var(--muted);margin:0 0 20px}
+.notice{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 24px;font-size:14px;color:var(--muted)}
+.notice b{color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.body{padding:18px;display:flex;flex-direction:column;gap:10px;height:100%}
+h3{margin:0;font-size:19px}
+p{margin:0;color:var(--muted);font-size:14px;flex:1}
+.price{font-size:24px;font-weight:800}
+.price small{font-size:13px;color:var(--muted);font-weight:400}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--buy);color:#052e22;text-align:center;padding:10px 14px;border-radius:9px;text-decoration:none;font-weight:700;font-size:14px}
+.btn.alt{background:#0b1220;color:#fff}
+.badge{font-size:11px;padding:3px 8px;border-radius:999px;vertical-align:middle}
+.meta{margin-top:24px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:14px}
+code,pre{background:#eef2f7;padding:2px 6px;border-radius:5px}
+pre{padding:12px;overflow:auto;font-size:12px}
+.copy{background:#eef2f7;border:1px solid var(--line);border-radius:8px;padding:10px;font-family:ui-monospace,monospace;font-size:13px;word-break:break-all;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.copy button{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+</style></head><body><div class="wrap">
+<h1>Checkout</h1>
+<p class="lead">Pay the exact price, then claim your ZIP. Crypto only — no card, no account.</p>
+<div id="app"><p>Loading product…</p></div>
+<div class="meta">
+Need help? <a href="https://t.me/redman8326">Telegram @redman8326</a> · <a href="mailto:workflowalpha.ai@gmail.com">workflowalpha.ai@gmail.com</a><br>
+<a href="./">← Back to catalog</a>
+</div></div>
+<script>
+var USDT="TRh6Zy3prMmP5tVtMLmmzKPYTkx8PP8pu1";
+var X402="https://hermesmicroservice.theworkpc.com";
+fetch(".well-known/shop.json").then(function(r){return r.json()}).then(function(c){
+  var id=new URLSearchParams(location.search).get("id");
+  var p=(c.products||[]).find(function(x){return x.id===id});
+  if(!p){document.getElementById("app").innerHTML='<p>Unknown product. <a href="./">See catalog</a>.</p>';return}
+  document.title=p.title+" — Checkout";
+  document.getElementById("app").innerHTML=
+   '<div class="card"><div class="body">'+
+   '<h3>'+p.title+'</h3><p>'+(p.description||'')+'</p>'+
+   '<div class="price">$'+p.price_usd+' <small>USD</small></div>'+
+   '<h3 style="font-size:16px;margin-top:8px">Option 1 — USDT (TRC-20), cheapest fees</h3>'+
+   '<div class="copy"><span id="addr">'+USDT+'</span><button onclick="cp(\'addr\',this)">Copy</button></div>'+
+   '<p>Send <b>'+p.price_usd+' USDT</b> (TRC-20) to the address above, then send the transaction hash (txid) to '+
+   '<a href="https://t.me/redman8326">Telegram @redman8326</a> or <a href="mailto:workflowalpha.ai@gmail.com?subject=Order '+encodeURIComponent(p.id
+   )+'">email</a>. The download link is sent back as soon as the tx is confirmed.</p>'+
+   '<h3 style="font-size:16px">Option 2 — USDC on Base (agent / wallet checkout)</h3>'+
+   '<p>HTTP 402 checkout for x402-capable wallets and agents using the EIP-3009 exact scheme:</p>'+
+   '<div class="copy"><span id="x402">'+X402+'/buy/'+p.id+'</span><button onclick="cp(\'x402\',this)">Copy</button></div>'+
+   '<p>Paying that URL returns the ZIP directly. Price: '+p.price_usd+' USDC on Base.</p>'+
+   '</div></div>';
+}).catch(function(e){document.getElementById("app").innerHTML='<p>Catalog unavailable: '+e+'</p>'});
+function cp(id,btn){var t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(function(){btn.innerText='Copied';setTimeout(function(){btn.innerText='Copy'},1500)})}
+</script></body></html>
