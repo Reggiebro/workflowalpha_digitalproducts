@@ -38,7 +38,6 @@ Need help? <a href="https://t.me/redman8326">Telegram @redman8326</a> · <a href
 </div></div>
 <script>
 var USDT="TRh6Zy3prMmP5tVtMLmmzKPYTkx8PP8pu1";
-var X402="https://hermesmicroservice.theworkpc.com";
 fetch(".well-known/shop.json").then(function(r){return r.json()}).then(function(c){
   var id=new URLSearchParams(location.search).get("id");
   var p=(c.products||[]).find(function(x){return x.id===id});
@@ -56,10 +55,8 @@ fetch(".well-known/shop.json").then(function(r){return r.json()}).then(function(
    '<p>Send <b>'+p.price_usd+' USDT</b> (TRC-20) to the address above, then send the transaction hash (txid) to '+
    '<a href="https://t.me/redman8326">Telegram @redman8326</a> or <a href="mailto:workflowalpha.ai@gmail.com?subject=Order '+encodeURIComponent(p.id
    )+'">email</a>. The download link is sent back as soon as the tx is confirmed.</p>'+
-   '<h3 style="font-size:16px">Option 2 — USDC on Base (agent / wallet checkout)</h3>'+
-   '<p>HTTP 402 checkout for x402-capable wallets and agents using the EIP-3009 exact scheme:</p>'+
-   '<div class="copy"><span id="x402">'+X402+'/buy/'+p.id+'</span><button onclick="cp(\'x402\',this)">Copy</button></div>'+
-   '<p>Paying that URL returns the ZIP directly. Price: '+p.price_usd+' USDC on Base.</p>'+
+   '<h3 style="font-size:16px">Option 2 — USDC on Base</h3>'+
+   '<p>Have USDC on Base? Message <a href="https://t.me/redman8326">@redman8326</a> with the product id <code>'+p.id+'</code> and you get a payment request; the ZIP follows the confirmation.</p>'+
    '</div></div>';
 }).catch(function(e){document.getElementById("app").innerHTML='<p>Catalog unavailable: '+e+'</p>'});
 function cp(id,btn){var t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(function(){btn.innerText='Copied';setTimeout(function(){btn.innerText='Copy'},1500)})}
