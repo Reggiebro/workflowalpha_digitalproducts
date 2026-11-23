@@ -48,7 +48,10 @@ fetch(".well-known/shop.json").then(function(r){return r.json()}).then(function(
    '<div class="card"><div class="body">'+
    '<h3>'+p.title+'</h3><p>'+(p.description||'')+'</p>'+
    '<div class="price">$'+p.price_usd+' <small>USD</small></div>'+
-   '<h3 style="font-size:16px;margin-top:8px">Option 1 — USDT (TRC-20), cheapest fees</h3>'+
+   '<h3 style="font-size:16px;margin-top:8px">Option 1 — automated in Telegram</h3>'+
+   '<p>Open <a href="https://t.me/RedmanShop_bot">@RedmanShop_bot</a>, pick the product, pay the exact USDT amount below, '+
+   'paste the txid in the chat — the ZIP comes back automatically.</p>'+
+   '<h3 style="font-size:16px">Option 1b — USDT (TRC-20) by hand, cheapest fees</h3>'+
    '<div class="copy"><span id="addr">'+USDT+'</span><button onclick="cp(\'addr\',this)">Copy</button></div>'+
    '<p>Send <b>'+p.price_usd+' USDT</b> (TRC-20) to the address above, then send the transaction hash (txid) to '+
    '<a href="https://t.me/redman8326">Telegram @redman8326</a> or <a href="mailto:workflowalpha.ai@gmail.com?subject=Order '+encodeURIComponent(p.id
