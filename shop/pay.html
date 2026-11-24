@@ -30,7 +30,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 </style></head><body><div class="wrap">
 <h1>Checkout</h1>
-<p class="lead">Pay the exact price, then claim your ZIP. Crypto only — no card, no account.</p>
+<p class="lead">Pay the exact price, then claim your ZIP. Crypto only — USDC on Base or USDT (TRC-20). No card, no account.</p>
 <div id="app"><p>Loading product…</p></div>
 <div class="meta">
 Need help? <a href="https://t.me/redman8326">Telegram @redman8326</a> · <a href="mailto:workflowalpha.ai@gmail.com">workflowalpha.ai@gmail.com</a><br>
@@ -38,6 +38,7 @@ Need help? <a href="https://t.me/redman8326">Telegram @redman8326</a> · <a href
 </div></div>
 <script>
 var USDT="TRh6Zy3prMmP5tVtMLmmzKPYTkx8PP8pu1";
+var USDC="0x37239DF5f8ffE8541657624726e0ffc517B38C57";
 fetch(".well-known/shop.json").then(function(r){return r.json()}).then(function(c){
   var id=new URLSearchParams(location.search).get("id");
   var p=(c.products||[]).find(function(x){return x.id===id});
@@ -47,16 +48,16 @@ fetch(".well-known/shop.json").then(function(r){return r.json()}).then(function(
    '<div class="card"><div class="body">'+
    '<h3>'+p.title+'</h3><p>'+(p.description||'')+'</p>'+
    '<div class="price">$'+p.price_usd+' <small>USD</small></div>'+
-   '<h3 style="font-size:16px;margin-top:8px">Option 1 — automated in Telegram</h3>'+
-   '<p>Open <a href="https://t.me/RedmanShop_bot">@RedmanShop_bot</a>, pick the product, pay the exact USDT amount below, '+
-   'paste the txid in the chat — the ZIP comes back automatically.</p>'+
-   '<h3 style="font-size:16px">Option 1b — USDT (TRC-20) by hand, cheapest fees</h3>'+
-   '<div class="copy"><span id="addr">'+USDT+'</span><button onclick="cp(\'addr\',this)">Copy</button></div>'+
-   '<p>Send <b>'+p.price_usd+' USDT</b> (TRC-20) to the address above, then send the transaction hash (txid) to '+
-   '<a href="https://t.me/redman8326">Telegram @redman8326</a> or <a href="mailto:workflowalpha.ai@gmail.com?subject=Order '+encodeURIComponent(p.id
-   )+'">email</a>. The download link is sent back as soon as the tx is confirmed.</p>'+
-   '<h3 style="font-size:16px">Option 2 — USDC on Base</h3>'+
-   '<p>Have USDC on Base? Message <a href="https://t.me/redman8326">@redman8326</a> with the product id <code>'+p.id+'</code> and you get a payment request; the ZIP follows the confirmation.</p>'+
+   '<h3 style="font-size:16px;margin-top:8px">Option 1 — automated (Telegram bot)</h3>'+
+   '<p>Open <a href="https://t.me/RedmanShop_bot">@RedmanShop_bot</a>, pick the product, pay with '+
+   '<b>USDC on Base</b> or <b>USDT (TRC-20)</b>, paste the transaction hash — the ZIP comes back in the chat automatically.</p>'+
+   '<h3 style="font-size:16px">Option 2 — USDC on Base (fastest, ~$0.001 fee)</h3>'+
+   '<div class="copy"><span id="addr">'+USDC+'</span><button onclick="cp(\'addr\',this)">Copy</button></div>'+
+   '<p>Send exactly <b>'+p.price_usd+' USDC</b> (Base network) to the address above, then send the transaction hash to '+
+   '<a href="https://t.me/redman8326">@redman8326</a> or <a href="mailto:workflowalpha.ai@gmail.com?subject=Order '+encodeURIComponent(p.id)+'">email</a>. Download link follows the tx confirmation.</p>'+
+   '<h3 style="font-size:16px">Option 3 — USDT (TRC-20)</h3>'+
+   '<div class="copy"><span id="addr2">'+USDT+'</span><button onclick="cp(\'addr2\',this)">Copy</button></div>'+
+   '<p>Send exactly <b>'+p.price_usd+' USDT</b> (TRC-20) to the address above, then send the transaction hash to the same contacts.</p>'+
    '</div></div>';
 }).catch(function(e){document.getElementById("app").innerHTML='<p>Catalog unavailable: '+e+'</p>'});
 function cp(id,btn){var t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(function(){btn.innerText='Copied';setTimeout(function(){btn.innerText='Copy'},1500)})}

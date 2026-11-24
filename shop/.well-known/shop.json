@@ -17,7 +17,7 @@
  "products": [
   {
    "id": "47-business-prompts",
-   "title": "The 47 Business Prompts — Production Pack",
+   "title": "The 47 Business Prompts \u2014 Production Pack",
    "price_usd": 9,
    "category": "prompts",
    "status": "active",
@@ -42,7 +42,7 @@
   },
   {
    "id": "12-ai-automation-sops",
-   "title": "The 12 AI Automation SOPs — Runbook Pack",
+   "title": "The 12 AI Automation SOPs \u2014 Runbook Pack",
    "price_usd": 14,
    "category": "templates",
    "status": "draft",
@@ -67,7 +67,7 @@
   },
   {
    "id": "prompt-and-automation-bundle",
-   "title": "The Prompt & Automation Bundle — 47 Prompts + 12 SOPs",
+   "title": "The Prompt & Automation Bundle \u2014 47 Prompts + 12 SOPs",
    "price_usd": 19,
    "category": "bundle",
    "status": "draft",
@@ -780,5 +780,24 @@
  "github": "https://github.com/Reggiebro/workflowalpha_digitalproducts",
  "shop_url": "https://workflowalphaai.theworkpc.com/shop/",
  "product_count": 28,
- "catalog_generated": "2026-11-23"
+ "catalog_generated": "2026-11-23",
+ "payments": [
+  {
+   "rail": "USDC",
+   "network": "Base",
+   "chain_id": 8453,
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "address": "0x37239DF5f8ffE8541657624726e0ffc517B38C57"
+  },
+  {
+   "rail": "USDT",
+   "network": "TRON (TRC-20)",
+   "asset": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+   "address": "TRh6Zy3prMmP5tVtMLmmzKPYTkx8PP8pu1"
+  }
+ ],
+ "delivery": {
+  "automated": "https://t.me/RedmanShop_bot",
+  "manual": "@redman8326"
+ }
 }
